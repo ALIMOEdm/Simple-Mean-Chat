@@ -1,0 +1,54 @@
+<div data-ng-controller="registrationCtrl as register">
+    <div class="row header">
+        <div class="col-md-12">
+            <h3 class="logo">
+                <a ui-sref="landing">Wolfram</a>
+            </h3>
+            <h4>Set up your new account today.</h4>
+            <p>
+                Beautiful chat for you and your friends
+            </p>
+        </div>
+    </div>
+
+    <div class="col-md-12">
+        <div class="wrapper clearfix">
+            <div class="formy">
+                <div class="row">
+                    <div class="col-md-12">
+                        <form role="form" data-ng-submit="register.register()">
+                            <div ng-show="register.register_error">
+                                <div class="alert alert-danger" role="alert">{{register.register_error_message}}</div>
+                            </div>
+                            <div class="form-group">
+                                <label for="name">Your name</label>
+                                <input class="form-control" id="name" data-ng-model="register.user.name" type="text">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email address</label>
+                                <input class="form-control" id="email" data-ng-model="register.user.email" type="email">
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <input class="form-control" id="password" data-ng-model="register.user.password" type="password">
+                            </div>
+                            <div class="form-group">
+                                <label for="confirmPassword">Repeat Password</label>
+                                <input class="form-control" id="confirmPassword" data-ng-model="register.user.confirmPassword" type="password">
+                            </div>
+                            <div class="submit">
+                                <button type="submit" class="button-clear">
+                                    <span>Create my account</span>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="already-account">
+            Already have an account?
+            <a ui-sref="auth.login">Sign in here</a>
+        </div>
+    </div>
+</div>

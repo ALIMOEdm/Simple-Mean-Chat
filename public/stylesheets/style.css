@@ -1,0 +1,136 @@
+html, body{
+    height: 100%;
+}
+
+.signup_background{
+    height: 100%;
+    background-attachment: fixed !important;
+    background-color: transparent;
+    background-image: -moz-linear-gradient( top , #355069 0px, #5E7A9B 100%);
+    background: -webkit-linear-gradient( top, #355069 0%, #5E7A9B 100%);
+    background-image: linear-gradient( top, #355069 0%, #5E7A9B 100%);
+    background-repeat: repeat;
+    background-position: 0% 0%;
+    background-clip: border-box;
+    background-origin: padding-box;
+    background-size: auto auto;
+}
+#signup .header .logo {
+    margin-top: 40px;
+    text-align: center;
+}
+
+#signup .header .logo a {
+    color: #FFF;
+    font-size: 31px;
+    font-family: "Lato","Helvetica Neue",Arial;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.6);
+    transition: color 0.25s linear 0s;
+}
+
+#signup .header h4 {
+    color: #FFF;
+    text-align: center;
+    font-size: 28px;
+    font-weight: 400;
+    font-family: Myriad Pro,Lato,Helvetica Neue,Arial;
+    margin-top: 45px;
+    margin-bottom: 5px;
+}
+
+#signup .header p {
+    color: #FFF;
+    text-align: center;
+}
+
+#signup .wrapper {
+    margin: 25px auto 0px;
+    width: 51%;
+    background: none repeat scroll 0% 0% #FFF;
+    padding: 15px 50px 25px;
+    border-radius: 5px;
+    border-top: 6px solid #6ED5E4;
+}
+
+#signup .already-account {
+    text-align: center;
+    color: #FFF;
+    margin-top: 25px;
+    margin-bottom: 70px;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+#signup .wrapper .formy {
+    margin-top: 22px;
+}
+
+#signup .already-account a {
+    color: #FFF;
+    text-decoration: underline;
+}
+.container{
+    width: 970px;
+}
+
+#signup .header .logo {
+    margin-top: 40px;
+    text-align: center;
+}
+
+#signup .header .logo a {
+    color: #FFF;
+    font-size: 31px;
+    font-family: "Lato","Helvetica Neue",Arial;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.6);
+    transition: color 0.25s linear 0s;
+}
+
+#signup .header h4 {
+    color: #FFF;
+    text-align: center;
+    font-size: 28px;
+    font-weight: 400;
+    font-family: Myriad Pro,Lato,Helvetica Neue,Arial;
+    margin-top: 45px;
+    margin-bottom: 5px;
+}
+
+#signup .header p {
+    color: #FFF;
+    text-align: center;
+}
+
+#signup .wrapper .formy .submit .button-clear {
+    margin-top: 35px;
+    display: inline-block;
+}
+.button-clear {
+    border: 0px none;
+    outline: medium none;
+    padding: 1px;
+    display: inline-block;
+    text-decoration: none;
+    border-radius: 5px;
+    box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.075);
+    background: linear-gradient(#CCD0D6, #ADB2BB) repeat scroll 0% 0% transparent;
+}
+
+.button-clear span {
+    display: block;
+    font-size: 14px;
+    padding-left: 23px;
+    padding-right: 23px;
+    height: 36px;
+    line-height: 33px;
+    border-radius: 4px;
+    font-weight: bold;
+    color: #444;
+    text-shadow: 0px 1px 0px #FFF;
+    background: linear-gradient(#F7F8FA, #EFF1F4) repeat scroll 0% 0% transparent;
+    box-shadow: 0px 1px 0px #FFF inset;
+}
+
+#signup .wrapper .formy .submit {
+    text-align: center;
+}

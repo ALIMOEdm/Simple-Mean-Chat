@@ -1,0 +1,3 @@
+chat.controller('registrationCtrl', [function(){
+
+}]);

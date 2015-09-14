@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html ng-app="Chat">
+    <head>
+        <title><%= title %></title>
+        <link rel='stylesheet' href='/bootstrap/css/bootstrap.min.css' />
+        <link rel='stylesheet' href='/stylesheets/style.css' />
+        <script src="/angular/angular.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-cookies.js"></script>
+        <script src="/angular/angular-ui-router.min.js"></script>
+        <script src="/javascripts/controllers/ChatController.js"></script>
+        <script src="/javascripts/controllers/mainChatPageController.js"></script>
+        <script src="/javascripts/controllers/auth.js"></script>
+        <script src="/javascripts/controllers/headerCtrl.js"></script>
+        <script src="/javascripts/routes/routes.js"></script>
+        <script src="/javascripts/services/rooms.js"></script>
+        <script src="/javascripts/services/user.js"></script>
+    </head>
+    <body style="height: 100%;">
+        <div ui-view style="height: 100%;"></div>
+    </body>
+</html>

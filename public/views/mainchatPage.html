@@ -1,0 +1,30 @@
+<div class="" style="height: 100%;" data-ng-controller="ChatController as chat" data-ng-init="initApp()">
+    <nav class="row" style="height: 50px;" data-ng-controller="headerCtrl as header">
+        <button class="btn btn-primary" ng-click="header.logout()">Logout</button>
+    </nav>
+
+    <div class="row" style="height: 100%;">
+        <div class="col-md-9 col-md-push-3" style="height: 100%;background-color: #217D99">
+            <div ui-view></div>
+        </div>
+        <div class="col-md-3 col-md-pull-9" style="height: 100%; background-color: #00d4b4;">
+            <div style="margin: 10px 0;">
+                <form data-ng-submit="chat.addRoom()">
+                    <div class="input-group">
+                        <input type="text" class="form-control" data-ng-model="chat.name" placeholder="Create room">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="submit">Go!</button>
+                            </span>
+                    </div><!-- /input-group -->
+                </form>
+            </div>
+            <div>
+                <ul class="list-group">
+                    <li class="list-group-item" ng-repeat="room in chat.rooms">
+                        {{ room.title }}
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,44 @@
+<div data-ng-controller="activateCtrl as activate">
+    <div class="row header">
+        <div class="col-md-12">
+            <h3 class="logo">
+                <a ui-sref="landing">Wolfram</a>
+            </h3>
+            <h4>Sign in to your account.</h4>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="wrapper clearfix">
+                <div class="formy">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <form role="form" data-ng-submit="activate.activate()">
+                                <div ng-show="activate.activate_error">
+                                    <div class="alert alert-danger" role="alert">{{activate.activate_error_message}}</div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="activate_code">Activate code</label>
+                                    <input class="form-control" id="activate_code" data-ng-model="activate.activate_code" type="text">
+                                </div>
+                                <div class="form-group">
+                                    <a href="#" ng-click="activate.resendEmail()">Re-send email</a>
+                                </div>
+                                <div class="submit">
+                                    <button type="submit" class="button-clear">
+                                        <span>Activate</span>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="already-account">
+                Don't have an account?
+                <a ui-sref="auth.registration">Create one here</a>
+            </div>
+        </div>
+    </div>
+</div>
