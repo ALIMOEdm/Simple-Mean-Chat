@@ -1,0 +1,19 @@
+<section style="height: 100%;" ng-controller="roomCtrl">
+    <div style="height: 80%;background-color: #ffffff;margin-bottom: 10px; margin-top: 10px;overflow: auto;" id="{{room_indent}}">
+        <!--{{messages}}-->
+
+        <div class="media" ng-repeat="mess in messages" style="margin: 10px;">
+            <div class="media-body">
+                <h4 class="media-heading">{{mess.from.name}}</h4>
+            </div>
+            {{mess.message}}
+        </div>
+        <!--<div ng-repeat="mess in messages" style="margin: 10px;">-->
+            <!--{{mess.message}} <span style="margin-left: 10px;">{{mess.createdAt}}</span>-->
+        <!--</div>-->
+    </div>
+    <div style="height: 15%; background-color: #8a6343">
+        <div ng-keypress='chatMessageHandler($event);' ng-model="userMessage" contenteditable
+             style="padding: 10px;background-color: #ffffff; width: 400px; height: 100%;overflow: auto;margin: 0 auto;"></div>
+    </div>
+</section>

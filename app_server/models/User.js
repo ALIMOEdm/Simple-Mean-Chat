@@ -46,8 +46,16 @@ var UserSchema = new mongoose.Schema({
         default: 0
     },
     confirmStr: String,
+    socketId: String,
+    rooms: [{
+        type: mongoose.Schema.Types.ObjectId, ref: 'Room'
+    }],
     salt: String
 });
+
+UserSchema.methods.addRoom = function(room){
+    this.rooms.push(room);
+};
 
 UserSchema.methods.activateUser = function(confStr){
     if(confStr === this.confirmStr){

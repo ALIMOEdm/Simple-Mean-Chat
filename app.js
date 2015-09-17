@@ -10,6 +10,7 @@ var passport = require('passport');
 var session = require('express-session');
 require('./app_server/models/Room');
 require('./app_server/models/User');
+require('./app_server/models/ChatMessage');
 require('./config/passport');
 mongoose.connect('mongodb://localhost/chat');
 
@@ -18,9 +19,19 @@ mongoose.connect('mongodb://localhost/chat');
 
 var app = express();
 var server = require('http').Server(app);
-var io = require('socket.io')(server);
+var io = require('socket.io').listen(server);
+server.listen(3200);
 
 var nodemailer = require('nodemailer');
+require('./socketListeners.js')(io);
+
+var mysql = require('mysql');
+var connection = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: '12345',
+    database: 'loginza'
+});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'app_server/views'));
@@ -46,7 +57,7 @@ app.use(passport.session());
 //app.use('/', routes);
 //app.use('/users', users);
 
-require('./routes')(app, passport);
+require('./routes')(app, passport, connection);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -78,6 +89,5 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
-
 
 module.exports = app;

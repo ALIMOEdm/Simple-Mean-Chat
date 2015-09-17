@@ -12,7 +12,7 @@ module.exports = function(passport){
             console.log(req.user);
             console.log(req.isAuthenticated());
             //check, contains user or not
-            if(!req.user || !req.user.hasOwnProperty('_id'))
+            if(!req.user || !req.user._id)
                 return res.send('');
 
             //try find user by id
@@ -69,7 +69,9 @@ module.exports = function(passport){
             //and save him
             user.save(function(err, user){
                 if(err){
-                    return res.status(400).send({msg: err.message});
+                    console.log(err);
+                    return res.status(400).send({msg: 'error'});
+                    //return res.status(400).send({msg: err.message});
                 }
 
                 req.logIn(user, function(err){
@@ -104,14 +106,18 @@ module.exports = function(passport){
                 _id: req.user._id
             }).exec(function(err, user){
                 if(err || !user){
-                    return res.status(400).json({msg: err.message});
+                    console.log(err);
+                    return res.status(400).send({msg: 'error'});
+                    //return res.status(400).json({msg: err.message});
                 }
 
                 user.activateUser(conf_str);
 
                 user.save(function(err, user){
                     if(err){
-                        return res.status(400).send({msg: err.message});
+                        console.log(err);
+                        return res.status(400).send({msg: 'error'});
+                        //return res.status(400).send({msg: err.message});
                     }
 
                     return res.json({
@@ -138,7 +144,9 @@ module.exports = function(passport){
                 _id: req.user._id
             }).exec(function(err, user){
                 if(err || !user){
-                    return res.status(400).json({msg: err.message});
+                    console.log(err);
+                    return res.status(400).send({msg: 'error'});
+                    //return res.status(400).json({msg: err.message});
                 }
 
                 emails.registerConfirmEmail(user);
@@ -155,14 +163,18 @@ module.exports = function(passport){
                 email: req.body.email
             }).exec(function(err, user){
                 if(err){
-                   return res.status(400).json({msg: err.message});
+                    console.log(err);
+                    return res.status(400).send({msg: 'error'});
+                   //return res.status(400).json({msg: err.message});
                 }
                 if(user){
                     if(!user.validPassword(req.body.password)){
                         return res.status(400).json({msg: 'Password is not correct'});
                     }
                     req.logIn(user, function(err) {
-                        if (err) { return next(err); }
+                        if (err) {
+                            return next(err);
+                        }
                         return res.json({
                             token: user.generateJWT(),
                             redirect: req.body.redirect

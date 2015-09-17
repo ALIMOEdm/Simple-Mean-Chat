@@ -1,4 +1,5 @@
-chat.factory('userFactory', ['$rootScope', '$http', '$cookies', '$location', '$state', '$timeout', '$q', function($rootScope, $http, $cookies, $location, $state, $timeout, $q){
+chat.factory('userFactory', ['$rootScope', '$http', '$cookies', '$location', '$state', '$timeout', '$q',
+    function($rootScope, $http, $cookies, $location, $state, $timeout, $q){
     function escape(html) {
         return String(html)
             .replace(/&/g, '&amp;')
@@ -41,6 +42,13 @@ chat.factory('userFactory', ['$rootScope', '$http', '$cookies', '$location', '$s
             }
         });
     }
+
+    ChatUser.prototype.getEmail = function(){
+        if(this.user) {
+            return this.user.email;
+        }
+        return '';
+    };
 
     ChatUser.prototype.onIdentity = function(response){
         if(!response){
@@ -147,6 +155,8 @@ chat.factory('userFactory', ['$rootScope', '$http', '$cookies', '$location', '$s
                 $timeout(defer.resolve);
                 if(!user.activate){
                     $location.path($state.href('auth.activate').replace(/[#]/ig, ''));
+                }else{
+                    $rootScope.$emit('loginned');
                 }
             }else{
                 $cookies.put('redirect', $location.path());
