@@ -1,1 +1,1 @@
-# mean_authorization
+chat, powered by mean stack
